@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <h1 id="counter">0</h1>
+    <button onclick="increment()">+</button>
+    <button onclick="decrement()">-</button>
+    
+    <input type="text" id="colorInput" placeholder="" oninput="changeBackground()">
+
+    <script>
+        let count = 0;
+
+        function increment() {
+            count++;
+            updateDisplay();
+        }
+
+        function decrement() {
+            count--;
+            updateDisplay();
+        }
+
+        function updateDisplay() {
+            document.getElementById("counter").innerText = count;
+        }
+
+        function changeBackground() {
+            const input = document.getElementById("colorInput").value;
+            document.body.style.backgroundColor = input; // Set the background to the input value
+            
+            // Optionally reset text color for better contrast if needed
+            if (input.toLowerCase() === 'black' || input.toLowerCase() === 'white') {
+                document.body.style.color = (input.toLowerCase() === 'black') ? 'white' : 'black';
+            } else {
+                document.body.style.color = 'black'; // Default text color
+            }
+        }
+    </script>
+</body>
+</html>
